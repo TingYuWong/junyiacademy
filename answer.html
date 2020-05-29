@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<body>
+<meta charset="UTF-8">
+<p><h2> 政大心理四 翁婷瑜 </h2></p>
+<p id="Q1"><h3>1A. junyiacademy</h3></p>
+<p id="A1"></p>
+<p id="Q2"><h3>1B. flipped class room is important</h3></p>
+<p id="A2"></p>
+<p id="Q3"><h3>2. 將1到input數字中3&5的倍數刪掉（不包含15的倍數）後，output剩下的數字個數</h3></p>
+<p id="A3"></p>
+
+<p id="Q4"><h3>3.</h3></p>
+<p id="A4">因為標示都是錯的，所以只有兩種狀況，第一種是「混合標籤『錯貼』在鉛筆袋上」，第二種是「混合標籤『錯貼』在原子筆袋上」<br>因此只要挑選「貼著混合標籤的袋子拿出一支筆」，如果是鉛筆，那該袋子就是鉛筆袋，貼著鉛筆標籤的是原子筆袋，貼著原子筆標籤的是混合袋；<br>如果是原子筆，那該袋子就是原子筆袋，貼著鉛筆標籤的是混合袋，貼著原子筆標籤的是鉛筆袋。<br>*混和 = 原子筆加鉛筆</p>
+<p id="Q5"><h3>4.</h3></p>
+<p id="A5">900元 = 750元（套餐優惠價格）+ 60元（服務生偷走的錢）+ 90元（服務生退回的錢）<br> $270*3 = 810（服務生偷走的錢 = 三人比原先優惠價格要多吸收的成本，因此810裡已經包含了這60元）<br>
+所以810元應該要再加服務生退回的90元（而不是已包含在810裡的60），即為900元。</p>
+
+
+<script>
+
+
+function rvsWord(string){
+    var question = string;
+    var answer = question.split('').reverse().join('');
+
+    document.getElementById("A1").innerHTML = "A: "+answer;
+}
+
+function rvsSentence(string){
+    var question = string;
+    var bigSplit = question.split(" ");
+    var merge = [];
+
+    for(i=0;i<bigSplit.length;i++){
+      merge[i] = bigSplit[i].split('').reverse().join('');
+    }
+
+    var answer = merge.join(' ')
+
+    document.getElementById("A2").innerHTML = "A: "+answer;
+
+}
+
+function Q2(num){
+    var original = [];
+    var merge = [];
+    var i;
+    for (i = 1; i < num+1; i++) {
+            original[0] = "";
+        if(i%3 != 0 && i%5 != 0){
+            original[i] = i;
+        }
+        else if(i%15 == 0){
+            original[i] = i;
+        }
+        else{original[i]='a';}
+        
+        if(original[i]=='a'){
+            original.splice(i,1);
+        }
+        merge = original.filter(function(a){return a});
+    }
+
+    var answer = merge.length;
+
+    document.getElementById("A3").innerHTML = answer;
+
+}
+
+//1A
+rvsWord('junyiacademy');
+//1B
+rvsSentence('flipped class room is important');
+
+//2
+Q2(15);
+
+
+
+</script>
+
+</body>
+</html>
